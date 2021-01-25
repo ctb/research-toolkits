@@ -5,3 +5,4 @@ channels:
 dependencies:
     - r-rmarkdown==2.6
     - r-rmdformats=1.0.1
+    - pandoc>=1.12.3
