@@ -18,4 +18,4 @@ jobs:
         $CONDA/bin/conda env update --file environment.yml --name base
     - name: build
       run: |
-        Rscript scripts/render_webpages.R
+        $CONDA/bin/Rscript scripts/render_webpages.R
