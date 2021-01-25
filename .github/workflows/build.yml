@@ -17,4 +17,5 @@ jobs:
       - run: |
           conda info
           conda list
+          conda activate rmd
           Rscript scripts/render_webpages.R
