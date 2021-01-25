@@ -3,5 +3,5 @@ channels:
     - bioconda
     - defaults
 dependencies:
-    - snakemake-minimal
-    - r-rmarkdown
+    - r-rmarkdown==2.6
+    - r-rmdformats=1.0.1
