@@ -1,3 +1,4 @@
+name: rmd
 channels:
     - conda-forge
     - bioconda
