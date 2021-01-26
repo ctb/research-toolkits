@@ -6,4 +6,5 @@ dependencies:
     - r-rmarkdown==2.6
     - r-rmdformats=1.0.1
     - r-visnetwork
+    - r-codetools
     - pandoc>=1.12.3
