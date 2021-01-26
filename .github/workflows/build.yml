@@ -10,12 +10,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: rmd
           environment-file: environment.yml
           python-version: 3.8
-          auto-activate-base: false
+          auto-activate-base: true
+          activate-environment: ""
       - run: |
           conda info
           conda list
-          conda activate rmd
           Rscript scripts/render_webpages.R
