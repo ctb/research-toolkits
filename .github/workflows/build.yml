@@ -19,7 +19,9 @@ jobs:
         run: conda list
       - name: render
         shell: bash -l {0}
-        run: Rscript scripts/render_webpages.R
+        run: |
+          Rscript scripts/render_webpages.R
+          find $(pwd) -ls
   deploy:
     runs-on: ubuntu-latest
     needs: build
