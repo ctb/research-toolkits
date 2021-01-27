@@ -28,6 +28,10 @@ jobs:
     if: github.ref == 'refs/heads/automate'
 
     steps:
+      - name: ls
+        shell: bash -l {0}
+        run: |
+          find $(pwd) -ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
