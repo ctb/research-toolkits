@@ -23,9 +23,9 @@ jobs:
           Rscript scripts/render_webpages.R
           find $(pwd)/docs -ls
       - uses: actions/upload-artifact@v2
-         with:
-            name: rendered-html
-            path: docs/
+        with:
+          name: rendered-html
+          path: docs/
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@3.7.1
