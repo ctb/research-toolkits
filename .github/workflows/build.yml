@@ -1,9 +1,9 @@
-name: build html
+name: build and deploy
 
 on: [push]
 
 jobs:
-  build-linux:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,12 @@ jobs:
       - name: render
         shell: bash -l {0}
         run: Rscript scripts/render_webpages.R
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/automate'
+
+    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
