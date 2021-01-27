@@ -14,30 +14,19 @@ jobs:
           environment-file: environment.yml
           python-version: 3.8
           auto-activate-base: false
-      - name: list
+      - name: list conda packages
         shell: bash -l {0}
         run: conda list
       - name: render
         shell: bash -l {0}
         run: |
           Rscript scripts/render_webpages.R
-          find $(pwd) -ls
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/automate'
-
-    steps:
-      - name: ls
-        shell: bash -l {0}
-        run: |
-          echo PWD is $(pwd)
-          find $(pwd) -ls
-          ls -lR
+          find $(pwd)/docs -ls
       - name: Deploy 🚀
+        if: github.ref == 'refs/heads/automate'
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: docs # The folder the action should deploy.
+          FOLDER: research-toolkits/docs # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
