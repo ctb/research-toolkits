@@ -31,7 +31,9 @@ jobs:
       - name: ls
         shell: bash -l {0}
         run: |
+          echo PWD is $(pwd)
           find $(pwd) -ls
+          ls -lR
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
